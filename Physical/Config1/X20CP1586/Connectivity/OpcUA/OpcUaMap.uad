@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<OpcUaSource FileVersion="9" ArVersion="B4.93">
+  <Aliases>
+    <ACLAliases />
+    <EURangeViolationAliases />
+    <EURangesAliases />
+    <EngineeringUnitAliases />
+  </Aliases>
+  <DefaultView>
+    <Module Name="&lt;Default&gt;">
+      <Task Name="SimConnect">
+        <Variable Name="Configuration">
+          <Variable Name="aoBoxSpawnRateTop" />
+          <Variable Name="aoBoxSpawnRateBottom" />
+          <Variable Name="aoConvSpeedInTop" />
+          <Variable Name="aoConvSpeedOutTop" />
+          <Variable Name="aoConvSpeedInBottom" />
+          <Variable Name="aoConvSpeedOutBottom" />
+          <Variable Name="aoConvSpeedLift" />
+          <Variable Name="aoConvSpeedUnload" />
+          <Variable Name="aoLiftTravelSpeed" />
+        </Variable>
+        <Variable Name="Inputs">
+          <Variable Name="diBoxTop" />
+          <Variable Name="diBoxBottom" />
+          <Variable Name="diBoxLift" />
+          <Variable Name="diBoxUnload" />
+          <Variable Name="diLiftPosTop" />
+          <Variable Name="diLiftPosBottom" />
+          <Variable Name="diLiftPosUnload" />
+          <Variable Name="diSimRunning" />
+          <Variable Name="aiExternalCounter" />
+        </Variable>
+        <Variable Name="Outputs">
+          <Variable Name="doLiftTop" />
+          <Variable Name="doLiftBottom" />
+          <Variable Name="doLiftUnload" />
+          <Variable Name="doConvTop" />
+          <Variable Name="doConvBottom" />
+          <Variable Name="doConvLift" />
+          <Variable Name="doInternalHeartbeat" />
+        </Variable>
+      </Task>
+    </Module>
+  </DefaultView>
+</OpcUaSource>

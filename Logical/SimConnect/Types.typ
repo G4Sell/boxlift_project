@@ -1,0 +1,38 @@
+
+TYPE
+	SimParamsType : 	STRUCT  (*Parameters for RobotStudio simulation and internal .*)
+		aoBoxSpawnRateTop : REAL; (*Spawn rate for boxes at top conveyor.*)
+		aoBoxSpawnRateBottom : REAL; (*Spawn rate for boxes at bottom conveyor.*)
+		aoConvSpeedInTop : REAL; (*Speed for ingoing conveyor top.*)
+		aoConvSpeedOutTop : REAL; (*Speed for outgoing top conveyor.*)
+		aoConvSpeedInBottom : REAL; (*Speed for ingoing bottom conveyor.*)
+		aoConvSpeedOutBottom : REAL; (*Speed for outgoing bottom conveyor.*)
+		aoConvSpeedLift : REAL; (*Speed for lift conveyor.*)
+		aoConvSpeedUnload : REAL; (*Speed for unoad conveyor.*)
+		aoLiftTravelSpeed : REAL; (*Travel speed between positions for the lift.*)
+		diLastExtCounter : UDINT; (*Last value of the external counter.*)
+		InternalHeartbeatTimer : TOF; (*Used for internal heartbeat.*)
+		HeartbeatTimer : TOF; (*Used for heartbeat monitoring.*)
+	END_STRUCT;
+	ASInputsType : 	STRUCT  (*Inputs from OPC UA node to Automation Studio.*)
+		diBoxTop : BOOL := FALSE; (*Box at top conveyor unload position.*)
+		diBoxBottom : BOOL := FALSE; (*Box at bottom conveyor unload position.*)
+		diBoxLift : BOOL := FALSE; (*Box loaded on lift.*)
+		diBoxUnload : BOOL := FALSE; (*Box at unload conveyor.*)
+		diLiftPosTop : BOOL := FALSE; (*Lift at top position.*)
+		diLiftPosBottom : BOOL := FALSE; (*Lift at bottom position.*)
+		diLiftPosUnload : BOOL := FALSE; (*Lift at unload position.*)
+		diSimRunning : BOOL := FALSE; (*Indicates active simulation.*)
+		aiExternalCounter : UDINT := 0; (*External heartbeat counter.*)
+	END_STRUCT;
+	ASOutputsType : 	STRUCT  (*Outputs from SimConnect task to OPC UA node (and/or other tasks).*)
+		doLiftTop : BOOL := FALSE; (*Move lift to top position.*)
+		doLiftBottom : BOOL := FALSE; (*Move lift to bottom position.*)
+		doLiftUnload : BOOL := FALSE; (*Move lift to unload position.*)
+		doConvTop : BOOL := FALSE; (*Top conveyor on/off.*)
+		doConvBottom : BOOL := FALSE; (*Bottom conveyor on/off.*)
+		doConvLift : BOOL := FALSE; (*Lift conveyor on/off.*)
+		doInternalHeartbeat : BOOL := FALSE; (*Internal heartbeat.*)
+		doConnectionError : BOOL := FALSE; (*Indicates an error with OPC UA connection.*)
+	END_STRUCT;
+END_TYPE

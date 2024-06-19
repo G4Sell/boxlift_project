@@ -1,0 +1,5 @@
+VAR
+	Inputs : ASInputsType; (*Inputs from OPC UA node to Automation Studio.*)
+	Outputs : ASOutputsType; (*Outputs from Automation Studio to OPC UA node.*)
+	Configuration : SimParamsType; (*Simulation parameters for Robot Studio.*)
+END_VAR
