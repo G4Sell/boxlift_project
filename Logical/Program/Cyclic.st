@@ -66,7 +66,7 @@ PROGRAM _CYCLIC
 		
 		UNLOAD_BOX:
 			doConvLift := TRUE;
-			IF diLiftUnload = FALSE THEN
+			IF diBoxUnload = TRUE THEN
 				doConvLift := FALSE;
 				selectLift := WAIT;
 			END_IF;

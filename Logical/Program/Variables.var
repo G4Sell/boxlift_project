@@ -5,13 +5,14 @@ VAR
 	diLiftTop : BOOL;
 	diBoxLift : BOOL;
 	diLiftUnload : BOOL;
+	diBoxUnload : BOOL;
 
-	doConvTop : BOOL;
-	doConvBot : BOOL;
-	doLiftTop : BOOL;
-	doLiftBot : BOOL;
-	doConvLift : BOOL;
-	doLiftUnload : BOOL;
+	doConvTop : BOOL := FALSE;
+	doConvBot : BOOL := FALSE;
+	doLiftTop : BOOL := FALSE;
+	doLiftBot : BOOL := FALSE;
+	doConvLift : BOOL := FALSE;
+	doLiftUnload : BOOL := FALSE;
 
 	GettingTop : BOOL;
 	GettingBot : BOOL;
