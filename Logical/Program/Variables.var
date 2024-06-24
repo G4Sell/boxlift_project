@@ -14,12 +14,11 @@ VAR
 	doConvLift : BOOL := FALSE;
 	doLiftUnload : BOOL := FALSE;
 
-	GettingTop : BOOL;
-	GettingBot : BOOL;
+	CurrentPose : UINT := 0;
+	NextPose : UINT := 0;
+
 
 	selectLift : UINT;
-	ConvTopOn : BOOL;
-	ConvBotOn : BOOL;
 END_VAR
 
 

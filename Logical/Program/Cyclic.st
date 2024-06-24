@@ -17,15 +17,29 @@ Pseudo Code
 			while diLiftUnload == False;
 				doLiftUnload = True;
 
+	if currently doing somehting
+		place in queue
+	
+
 	*)
+
+
 
 PROGRAM _CYCLIC	
 
-	CASE selectLift OF
-		WAIT:
-			// doConvTop := TRUE;
-			// doConvBot := TRUE;
+	IF (diConvTop = TRUE AND selectLift <> WAIT) THEN
+		NextPose := TOP_POSE;
+		doConvTop := FALSE;
+	END_IF;
 
+	IF (diConvBot = TRUE AND selectLift <> WAIT) THEN
+		NextPose := BOT_POSE;
+		doConvBot := FALSE;
+	END_IF;
+
+	CASE selectLift OF
+
+		WAIT:
 			IF (diConvTop = TRUE) THEN
 				selectLift := TOP_POSE;
 				doConvTop := FALSE;
@@ -68,7 +82,11 @@ PROGRAM _CYCLIC
 			doConvLift := TRUE;
 			IF diBoxUnload = TRUE THEN
 				doConvLift := FALSE;
-				selectLift := WAIT;
+				IF NextPose = WAIT THEN
+					selectLift := WAIT;
+				ELSE
+					selectLift := NextPose;
+				END_IF;
 			END_IF;
 	END_CASE;
 
