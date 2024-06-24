@@ -14,9 +14,8 @@ VAR
 	doConvLift : BOOL := FALSE;
 	doLiftUnload : BOOL := FALSE;
 
-	CurrentPose : UINT := 0;
-	NextPose : UINT := 0;
-
+	CurrentPose : UINT;
+	NextPose : UINT;
 
 	selectLift : UINT;
 END_VAR
