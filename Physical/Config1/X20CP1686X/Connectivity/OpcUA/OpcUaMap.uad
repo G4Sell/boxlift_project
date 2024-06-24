@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <?AutomationStudio FileVersion="4.9"?>
-<OpcUaSource FileVersion="9" ArVersion="B4.93">
+<OpcUaSource FileVersion="9" ArVersion="J4.93">
   <Aliases>
     <ACLAliases />
     <EURangeViolationAliases />
@@ -41,6 +41,20 @@
           <Variable Name="doConvLift" />
           <Variable Name="doInternalHeartbeat" />
         </Variable>
+      </Task>
+      <Task Name="Program">
+        <Variable Name="diBoxLift" />
+        <Variable Name="diConvBot" />
+        <Variable Name="diConvTop" />
+        <Variable Name="diLiftBot" />
+        <Variable Name="diLiftTop" />
+        <Variable Name="diLiftUnload" />
+        <Variable Name="doConvBot" />
+        <Variable Name="doConvLift" />
+        <Variable Name="doConvTop" />
+        <Variable Name="doLiftBot" />
+        <Variable Name="doLiftTop" />
+        <Variable Name="doLiftUnload" />
       </Task>
     </Module>
   </DefaultView>

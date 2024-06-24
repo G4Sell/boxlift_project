@@ -1,0 +1,32 @@
+VAR
+	diConvTop : BOOL;
+	diConvBot : BOOL;
+	diLiftBot : BOOL;
+	diLiftTop : BOOL;
+	diBoxLift : BOOL;
+	diLiftUnload : BOOL;
+
+	doConvTop : BOOL;
+	doConvBot : BOOL;
+	doLiftTop : BOOL;
+	doLiftBot : BOOL;
+	doConvLift : BOOL;
+	doLiftUnload : BOOL;
+
+	GettingTop : BOOL;
+	GettingBot : BOOL;
+
+	selectLift : UINT;
+	ConvTopOn : BOOL;
+	ConvBotOn : BOOL;
+END_VAR
+
+
+VAR CONSTANT
+	TOP_POSE : INT := 1;
+	BOT_POSE : INT := 2;
+	GET_BOX : INT := 3;
+	UNLOAD_POSE : INT := 4;
+	UNLOAD_BOX : INT := 5;
+	WAIT : INT := 0;
+END_VAR

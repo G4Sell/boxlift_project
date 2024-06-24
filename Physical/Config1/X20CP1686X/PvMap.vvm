@@ -1,4 +1,15 @@
-
 VAR_CONFIG
-
+	Cyclic#1.::SimConnect:Inputs.diLiftPosTop AT %Q. Cyclic#1.::Program:diLiftTop; (*Insert your comment here...*)
+	Cyclic#1.::SimConnect:Inputs.diLiftPosUnload AT %Q. Cyclic#1.::Program:diLiftUnload; (*Insert your comment here...*)
+	Cyclic#1.::SimConnect:Inputs.diLiftPosBottom AT %Q. Cyclic#1.::Program:diLiftBot; (*Insert your comment here...*)
+	Cyclic#1.::SimConnect:Inputs.diBoxLift AT %Q. Cyclic#1.::Program:diBoxLift; (*Insert your comment here...*)
+	Cyclic#1.::SimConnect:Inputs.diBoxBottom AT %Q. Cyclic#1.::Program:diConvBot; (*Insert your comment here...*)
+	Cyclic#1.::SimConnect:Inputs.diBoxTop AT %Q. Cyclic#1.::Program:diConvTop; (*Insert your comment here...*)
+	
+	Cyclic#1.::Program:doLiftTop AT %Q.Cyclic#1.::SimConnect:Outputs.doLiftTop; (*Insert your comment here...*)
+	Cyclic#1.::Program:doLiftUnload AT %Q.Cyclic#1.::SimConnect:Outputs.doLiftUnload; (*Insert your comment here...*)
+	Cyclic#1.::Program:doConvTop AT %Q.Cyclic#1.::SimConnect:Outputs.doConvTop; (*Insert your comment here...*)
+	Cyclic#1.::Program:doLiftBot AT %Q.Cyclic#1.::SimConnect:Outputs.doLiftBottom; (*Insert your comment here...*)
+	Cyclic#1.::Program:doConvLift AT %Q.Cyclic#1.::SimConnect:Outputs.doConvLift; (*Insert your comment here...*)
+	Cyclic#1.::Program:doConvBot AT %Q.Cyclic#1.::SimConnect:Outputs.doConvBottom; (*Insert your comment here...*)
 END_VAR
