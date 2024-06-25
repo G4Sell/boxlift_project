@@ -5,5 +5,9 @@
     <Object Type="File">Visualizat.vis</Object>
     <Object Type="File">Config.mappviewcfg</Object>
     <Object Type="File">HeaderContent.binding</Object>
+    <Object Type="File">ServiceMainContent.binding</Object>
+    <Object Type="File">ServiceMainContent.eventbinding</Object>
+    <Object Type="File">HeaderContent.eventbinding</Object>
+    <Object Type="File">MainContent.eventbinding</Object>
   </Objects>
 </Package>

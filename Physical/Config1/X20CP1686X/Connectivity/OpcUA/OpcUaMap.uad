@@ -10,7 +10,7 @@
   <DefaultView>
     <Module Name="&lt;Default&gt;">
       <Task Name="SimConnect">
-        <Variable Name="Configuration">
+        <Variable Name="Configuration" RecursiveEnable="2">
           <Variable Name="aoBoxSpawnRateTop" />
           <Variable Name="aoBoxSpawnRateBottom" />
           <Variable Name="aoConvSpeedInTop" />
@@ -21,7 +21,7 @@
           <Variable Name="aoConvSpeedUnload" />
           <Variable Name="aoLiftTravelSpeed" />
         </Variable>
-        <Variable Name="Inputs">
+        <Variable Name="Inputs" RecursiveEnable="2">
           <Variable Name="diBoxTop" />
           <Variable Name="diBoxBottom" />
           <Variable Name="diBoxLift" />
@@ -32,7 +32,7 @@
           <Variable Name="diSimRunning" />
           <Variable Name="aiExternalCounter" />
         </Variable>
-        <Variable Name="Outputs">
+        <Variable Name="Outputs" RecursiveEnable="2">
           <Variable Name="doLiftTop" />
           <Variable Name="doLiftBottom" />
           <Variable Name="doLiftUnload" />
@@ -69,6 +69,7 @@
         <Variable Name="TON_0" />
         <Variable Name="TON_1" />
         <Variable Name="NewBox" />
+        <Variable Name="BoxesReceived" />
       </Task>
     </Module>
   </DefaultView>
