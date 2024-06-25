@@ -55,6 +55,7 @@
         <Variable Name="doLiftBot" />
         <Variable Name="doLiftTop" />
         <Variable Name="doLiftUnload" />
+        <Variable Name="selectLift" />
       </Task>
       <Task Name="AlarmHandl">
         <Variable Name="BoxArrivedCnt" />

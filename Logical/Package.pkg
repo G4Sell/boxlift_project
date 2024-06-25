@@ -8,5 +8,6 @@
     <Object Type="Program" Language="IEC">SimConnect</Object>
     <Object Type="Program" Language="IEC">Program</Object>
     <Object Type="Program" Language="IEC">AlarmHandler</Object>
+    <Object Type="Package">mappView</Object>
   </Objects>
 </Package>
