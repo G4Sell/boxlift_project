@@ -27,12 +27,12 @@ Pseudo Code
 
 PROGRAM _CYCLIC	
 
-	IF (diConvTop AND selectLift <> GET_BOX) THEN
+	IF (diConvTop AND NOT diLiftTop) THEN
 		NextPose := TOP_POSE;
 		doConvTop := FALSE;
 	END_IF;
 
-	IF (diConvBot = TRUE AND selectLift <> GET_BOX) THEN
+	IF (diConvBot = TRUE AND NOT diLiftBot) THEN
 		NextPose := BOT_POSE;
 		doConvBot := FALSE;
 	END_IF;

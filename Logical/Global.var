@@ -1,6 +1,6 @@
 
 VAR
-
+    currentTask : UINT;
 END_VAR
 
 VAR CONSTANT

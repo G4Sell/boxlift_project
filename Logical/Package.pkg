@@ -7,5 +7,6 @@
     <Object Type="Package" Description="Global libraries">Libraries</Object>
     <Object Type="Program" Language="IEC">SimConnect</Object>
     <Object Type="Program" Language="IEC">Program</Object>
+    <Object Type="Program" Language="IEC">AlarmHandler</Object>
   </Objects>
 </Package>

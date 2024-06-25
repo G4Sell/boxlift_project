@@ -56,6 +56,19 @@
         <Variable Name="doLiftTop" />
         <Variable Name="doLiftUnload" />
       </Task>
+      <Task Name="AlarmHandl">
+        <Variable Name="BoxArrivedCnt" />
+        <Variable Name="BoxDeliveredCnt" />
+        <Variable Name="diBoxBot" />
+        <Variable Name="diBoxTop" />
+        <Variable Name="diBoxUnload" />
+        <Variable Name="diLiftBot" />
+        <Variable Name="diLiftTop" />
+        <Variable Name="Error" />
+        <Variable Name="TON_0" />
+        <Variable Name="TON_1" />
+        <Variable Name="NewBox" />
+      </Task>
     </Module>
   </DefaultView>
 </OpcUaSource>
