@@ -56,7 +56,7 @@
         <Variable Name="doLiftTop" />
         <Variable Name="doLiftUnload" />
         <Variable Name="selectLift" />
-        <Variable Name="ManualControl" />
+        <Variable Name="AutomaticControl" />
       </Task>
       <Task Name="AlarmHandl">
         <Variable Name="BoxArrivedCnt" />

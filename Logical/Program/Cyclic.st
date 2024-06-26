@@ -27,8 +27,7 @@ Pseudo Code
 
 PROGRAM _CYCLIC	
 	
-	IF NOT ManualControl THEN
-
+	IF AutomaticControl THEN
 		IF (diConvTop AND NOT diLiftTop) THEN
 			NextPose := TOP_POSE;
 			doConvTop := FALSE;
