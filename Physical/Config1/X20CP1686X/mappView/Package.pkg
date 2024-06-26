@@ -12,5 +12,6 @@
     <Object Type="File">ControlContent.eventbinding</Object>
     <Object Type="File">MainContent.binding</Object>
     <Object Type="File">ManualControlContent.binding</Object>
+    <Object Type="File">ControlContent.binding</Object>
   </Objects>
 </Package>
