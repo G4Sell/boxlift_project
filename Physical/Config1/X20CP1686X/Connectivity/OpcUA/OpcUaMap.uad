@@ -9,6 +9,9 @@
   </Aliases>
   <DefaultView>
     <Module Name="&lt;Default&gt;">
+      <GlobalVariables Name="Global Variables">
+        <Variable Name="gError" />
+      </GlobalVariables>
       <Task Name="SimConnect">
         <Variable Name="Configuration" RecursiveEnable="2">
           <Variable Name="aoBoxSpawnRateTop" />
@@ -66,7 +69,6 @@
         <Variable Name="diBoxUnload" />
         <Variable Name="diLiftBot" />
         <Variable Name="diLiftTop" />
-        <Variable Name="Error" />
         <Variable Name="TON_0" />
         <Variable Name="TON_1" />
         <Variable Name="NewBox" />
