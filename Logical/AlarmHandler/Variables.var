@@ -15,4 +15,12 @@ VAR
 	TON_1 : TON;
 	BoxesReceived : UINT;
 	MpAlarmXCore_0 : MpAlarmXCore;
+	MpAlarmXHistory_0 : MpAlarmXHistory;
+    MpAlarmXAcknowledgeAll_0 : MpAlarmXAcknowledgeAll;
+	AlarmLanguage : STRING[20] := 'en|metric';
+    CauseError : BOOL;
+    AcknowledgeAlarms : BOOL;
+    ResetAlarms : BOOL;
+    AcknowledgeAllAlarms : BOOL;
+    ClearHistory : BOOL; 
 END_VAR

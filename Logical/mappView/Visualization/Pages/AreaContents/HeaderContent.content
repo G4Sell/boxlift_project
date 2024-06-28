@@ -6,6 +6,6 @@
     <Widget xsi:type="widgets.brease.Label" id="Label1" top="40" left="580" width="120" zIndex="2" text="Machine State" />
     <Widget xsi:type="widgets.brease.NumericOutput" id="NumericOutput1" top="40" left="700" width="60" zIndex="3" format="{'metric':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':1,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':1,'minimumIntegerDigits':1}}" />
     <Widget xsi:type="widgets.brease.Label" id="Label2" top="40" left="400" width="120" zIndex="4" text="Active Alarms" />
-    <Widget xsi:type="widgets.brease.Image" id="Image2" top="30" left="510" width="40" height="40" zIndex="5" image="Media/SymbolLib/Alarm/Alarm.svg" visible="false" />
+    <Widget xsi:type="widgets.brease.NumericOutput" id="NumericOutput2" top="40" left="520" width="60" zIndex="5" format="{'metric':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':1,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':1,'minimumIntegerDigits':1}}" />
   </Widgets>
 </Content>

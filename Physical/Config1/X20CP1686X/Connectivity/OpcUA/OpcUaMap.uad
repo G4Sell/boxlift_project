@@ -73,6 +73,12 @@
         <Variable Name="TON_1" />
         <Variable Name="NewBox" />
         <Variable Name="BoxesReceived" />
+        <Variable Name="AcknowledgeAlarms" />
+        <Variable Name="CauseError" />
+        <Variable Name="ResetAlarms" />
+        <Variable Name="AcknowledgeAllAlarms" />
+        <Variable Name="MpAlarmXCore_0" RecursiveEnable="2" />
+        <Variable Name="ClearHistory" />
       </Task>
     </Module>
   </DefaultView>
