@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<vdef:Visualization id="BoxLiftHMI" autoUpdate="true" xmlns:vdef="http://www.br-automation.com/iat2015/visualizationDefinition/v2">
+  <StartPage pageRefId="MainPage" />
+  <Pages>
+    <Page refId="MainPage" />
+    <Page refId="AlarmPage" />
+  </Pages>
+  <Navigations />
+  <BindingsSets>
+    <BindingsSet refId="HeaderContent_binding" />
+    <BindingsSet refId="ServiceMainContent_binding" />
+    <BindingsSet refId="MainContent_binding" />
+    <BindingsSet refId="ManualControlContent_binding" />
+    <BindingsSet refId="ControlContent_binding" />
+  </BindingsSets>
+  <EventBindingsSets>
+    <EventBindingsSet refId="ServiceMainContent_eventbinding" />
+    <EventBindingsSet refId="HeaderContent_eventbinding" />
+    <EventBindingsSet refId="MainContent_eventbinding" />
+    <EventBindingsSet refId="ControlContent_eventbinding" />
+  </EventBindingsSets>
+  <Dialogs>
+    <Dialog refId="PopUpDialog" />
+  </Dialogs>
+  <Contents>
+    <Content refId="HeaderContent" />
+    <Content refId="ServiceMainContent" />
+    <Content refId="PopUpContent" />
+    <Content refId="ManualControlContent" />
+    <Content refId="ControlContent" />
+  </Contents>
+  <SnippetsSets />
+  <VariablesSets />
+  <ExpressionsSets />
+  <StartTheme themeRefId="BuRTheme1" />
+  <Themes>
+    <Theme refId="BuRTheme1" />
+  </Themes>
+  <Configurations>
+    <Configuration key="activityCount" value="false" />
+    <Gestures>
+      <!--<SystemGesture1 touchPoints="2" />
+		  <SystemGesture2 touchPoints="2" />
+		  <SystemGesture3 touchPoints="2" />-->
+    </Gestures>
+    <VirtualKeyboards>
+      <!--<InputProcessing onKeyDown="true" />-->
+    </VirtualKeyboards>
+  </Configurations>
+</vdef:Visualization>

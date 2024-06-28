@@ -1,0 +1,30 @@
+
+VAR
+    diBoxTop : BOOL;
+    diBoxBot : BOOL;
+    diLiftTop : BOOL;
+    diLiftBot : BOOL;
+    diBoxUnload : BOOL;
+
+    NewBox : BOOL;
+    BoxDeliveredCnt : CTU;
+    BoxArrivedCnt : CTU;
+
+    GettingTop : BOOL;
+    GettingBot : BOOL;
+
+    ConditionTopErr : BOOL; 
+    ConditionBotErr : BOOL;
+
+    TON_0 : TON;
+    TON_1 : TON;
+
+    BoxesReceived : UINT;
+
+
+    
+END_VAR
+
+VAR CONSTANT
+
+END_VAR

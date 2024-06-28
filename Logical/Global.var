@@ -1,6 +1,7 @@
 
 VAR
     currentTask : UINT;
+    gError : BOOL;
 END_VAR
 
 VAR CONSTANT

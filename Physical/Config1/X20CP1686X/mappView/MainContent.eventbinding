@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EventBindingSet id="MainContent_eventbinding" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Bindings>
+    <EventBinding id="EventBinding_1">
+      <Source xsi:type="opcUa.Event" refId="::SimConnect:Inputs.diBoxTop" event="ValueChanged" />
+      <EventHandler condition="newValue">
+        <Action>
+          <Target xsi:type="widgets.brease.Ellipse.Action" contentRefId="MainContent" widgetRefId="Ellipse1">
+            <Method xsi:type="widgets.brease.Ellipse.Action.SetStyle" value="diOn" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="NOT newValue">
+        <Action>
+          <Target xsi:type="widgets.brease.Ellipse.Action" contentRefId="MainContent" widgetRefId="Ellipse1">
+            <Method xsi:type="widgets.brease.Ellipse.Action.SetStyle" value="Off" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="EventBinding_5">
+      <Source xsi:type="opcUa.Event" refId="::SimConnect:Inputs.diBoxBottom" event="ValueChanged" />
+      <EventHandler condition="newValue">
+        <Action>
+          <Target xsi:type="widgets.brease.Ellipse.Action" contentRefId="MainContent" widgetRefId="Ellipse2">
+            <Method xsi:type="widgets.brease.Ellipse.Action.SetStyle" value="diOn" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="NOT newValue">
+        <Action>
+          <Target xsi:type="widgets.brease.Ellipse.Action" contentRefId="MainContent" widgetRefId="Ellipse2">
+            <Method xsi:type="widgets.brease.Ellipse.Action.SetStyle" value="Off" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="EventBinding_6">
+      <Source xsi:type="opcUa.Event" refId="::SimConnect:Inputs.diLiftPosUnload" event="ValueChanged" />
+      <EventHandler condition="newValue">
+        <Action>
+          <Target xsi:type="widgets.brease.Ellipse.Action" contentRefId="MainContent" widgetRefId="Ellipse3">
+            <Method xsi:type="widgets.brease.Ellipse.Action.SetStyle" value="diOn" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="NOT newValue">
+        <Action>
+          <Target xsi:type="widgets.brease.Ellipse.Action" contentRefId="MainContent" widgetRefId="Ellipse3">
+            <Method xsi:type="widgets.brease.Ellipse.Action.SetStyle" value="Off" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="EventBinding_9">
+      <Source xsi:type="opcUa.Event" refId="::SimConnect:Inputs.diBoxLift" event="ValueChanged" />
+      <EventHandler condition="newValue">
+        <Action>
+          <Target xsi:type="widgets.brease.Ellipse.Action" contentRefId="MainContent" widgetRefId="Ellipse3">
+            <Method xsi:type="widgets.brease.Ellipse.Action.SetStyle" value="diOn" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="NOT newValue">
+        <Action>
+          <Target xsi:type="widgets.brease.Ellipse.Action" contentRefId="MainContent" widgetRefId="Ellipse3">
+            <Method xsi:type="widgets.brease.Ellipse.Action.SetStyle" value="Off" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="EventBinding_10">
+      <Source xsi:type="opcUa.Event" refId="::SimConnect:Inputs.diLiftPosTop" event="ValueChanged" />
+      <EventHandler condition="NOT newValue">
+        <Action>
+          <Target xsi:type="widgets.brease.Ellipse.Action" contentRefId="MainContent" widgetRefId="Ellipse5">
+            <Method xsi:type="widgets.brease.Ellipse.Action.SetStyle" value="diOn" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.Ellipse.Action" contentRefId="MainContent" widgetRefId="Ellipse5">
+            <Method xsi:type="widgets.brease.Ellipse.Action.SetStyle" value="Off" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="EventBinding_11">
+      <Source xsi:type="opcUa.Event" refId="::SimConnect:Inputs.diLiftPosBottom" event="ValueChanged" />
+      <EventHandler condition="newValue">
+        <Action>
+          <Target xsi:type="widgets.brease.Ellipse.Action" contentRefId="MainContent" widgetRefId="Ellipse11">
+            <Method xsi:type="widgets.brease.Ellipse.Action.SetStyle" value="diOn" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="NOT newValue">
+        <Action>
+          <Target xsi:type="widgets.brease.Ellipse.Action" contentRefId="MainContent" widgetRefId="Ellipse11">
+            <Method xsi:type="widgets.brease.Ellipse.Action.SetStyle" value="Off" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="EventBinding_2">
+      <Source xsi:type="opcUa.Event" refId="::SimConnect:Outputs.doConvBottom" event="ValueChanged" />
+      <EventHandler condition="newValue">
+        <Action>
+          <Target xsi:type="widgets.brease.Ellipse.Action" contentRefId="MainContent" widgetRefId="Ellipse6">
+            <Method xsi:type="widgets.brease.Ellipse.Action.SetStyle" value="doOn" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="NOT newValue">
+        <Action>
+          <Target xsi:type="widgets.brease.Ellipse.Action" contentRefId="MainContent" widgetRefId="Ellipse6">
+            <Method xsi:type="widgets.brease.Ellipse.Action.SetStyle" value="Off" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="EventBinding_3">
+      <Source xsi:type="opcUa.Event" refId="::SimConnect:Outputs.doConvTop" event="ValueChanged" />
+      <EventHandler condition="newValue">
+        <Action>
+          <Target xsi:type="widgets.brease.Ellipse.Action" contentRefId="MainContent" widgetRefId="Ellipse7">
+            <Method xsi:type="widgets.brease.Ellipse.Action.SetStyle" value="doOn" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="NOT newValue">
+        <Action>
+          <Target xsi:type="widgets.brease.Ellipse.Action" contentRefId="MainContent" widgetRefId="Ellipse7">
+            <Method xsi:type="widgets.brease.Ellipse.Action.SetStyle" value="Off" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="EventBinding_4">
+      <Source xsi:type="opcUa.Event" refId="::SimConnect:Outputs.doConvLift" event="ValueChanged" />
+      <EventHandler condition="newValue">
+        <Action>
+          <Target xsi:type="widgets.brease.Ellipse.Action" contentRefId="MainContent" widgetRefId="Ellipse8">
+            <Method xsi:type="widgets.brease.Ellipse.Action.SetStyle" value="doOn" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="NOT newValue">
+        <Action>
+          <Target xsi:type="widgets.brease.Ellipse.Action" contentRefId="MainContent" widgetRefId="Ellipse8">
+            <Method xsi:type="widgets.brease.Ellipse.Action.SetStyle" value="Off" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="EventBinding_12">
+      <Source xsi:type="opcUa.Event" refId="::SimConnect:Outputs.doLiftTop" event="ValueChanged" />
+      <EventHandler condition="newValue">
+        <Action>
+          <Target xsi:type="widgets.brease.Ellipse.Action" contentRefId="MainContent" widgetRefId="Ellipse9">
+            <Method xsi:type="widgets.brease.Ellipse.Action.SetStyle" value="doOn" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="NOT newValue">
+        <Action>
+          <Target xsi:type="widgets.brease.Ellipse.Action" contentRefId="MainContent" widgetRefId="Ellipse9">
+            <Method xsi:type="widgets.brease.Ellipse.Action.SetStyle" value="Off" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="EventBinding_13">
+      <Source xsi:type="opcUa.Event" refId="::SimConnect:Outputs.doLiftBottom" event="ValueChanged" />
+      <EventHandler condition="newValue">
+        <Action>
+          <Target xsi:type="widgets.brease.Ellipse.Action" contentRefId="MainContent" widgetRefId="Ellipse10">
+            <Method xsi:type="widgets.brease.Ellipse.Action.SetStyle" value="doOn" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="NOT newValue">
+        <Action>
+          <Target xsi:type="widgets.brease.Ellipse.Action" contentRefId="MainContent" widgetRefId="Ellipse10">
+            <Method xsi:type="widgets.brease.Ellipse.Action.SetStyle" value="Off" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="EventBinding_14">
+      <Source xsi:type="opcUa.Event" refId="::SimConnect:Outputs.doLiftUnload" event="ValueChanged" />
+      <EventHandler condition="newValue">
+        <Action>
+          <Target xsi:type="widgets.brease.Ellipse.Action" contentRefId="MainContent" widgetRefId="Ellipse12">
+            <Method xsi:type="widgets.brease.Ellipse.Action.SetStyle" value="doOn" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="NOT newValue">
+        <Action>
+          <Target xsi:type="widgets.brease.Ellipse.Action" contentRefId="MainContent" widgetRefId="Ellipse12">
+            <Method xsi:type="widgets.brease.Ellipse.Action.SetStyle" value="Off" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="EventBinding_7">
+      <Source xsi:type="opcUa.Event" refId="::AlarmHandl:BoxesReceived" event="ValueChanged" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="PopUpDialog" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+  </Bindings>
+</EventBindingSet>

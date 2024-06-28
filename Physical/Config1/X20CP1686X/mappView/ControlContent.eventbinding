@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EventBindingSet id="ControlContent_eventbinding" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Bindings>
+    <EventBinding id="EventBinding_8">
+      <Source xsi:type="widgets.brease.ButtonBar.Event" contentRefId="ControlContent" widgetRefId="ButtonBar1" event="SelectedIndexChanged" />
+      <EventHandler condition="value=0">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.LoadContentInArea" contentId="MainContent" pageId="MainPage" areaId="main" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="value=1">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.LoadContentInArea" contentId="ManualControlContent" pageId="MainPage" areaId="main" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+  </Bindings>
+</EventBindingSet>
