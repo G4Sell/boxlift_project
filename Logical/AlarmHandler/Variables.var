@@ -14,5 +14,6 @@ VAR
 	TON_0 : TON;
 	TON_1 : TON;
 	BoxesReceived : UINT;
-	MpAlarmXCore_0 : MpAlarmXCore;
+
+    MpAlarmXCore_0 : MpAlarmXCore;
 END_VAR
