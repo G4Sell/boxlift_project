@@ -1,3 +1,4 @@
+
 VAR
 	diBoxTop : BOOL;
 	diBoxBot : BOOL;

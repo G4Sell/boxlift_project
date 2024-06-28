@@ -5,9 +5,8 @@
     <Group ID="mapp.AlarmX.Core.Configuration">
       <Group ID="[0]">
         <Property ID="Name" Value="BoxLost" />
-        <Property ID="Message" Value="A box apperas to be lost" />
+        <Property ID="Message" Value="A box was not deliivered" />
         <Property ID="Code" Value="117" />
-        <Property ID="Severity" Value="10" />
         <Selector ID="Behavior" Value="PersistentAlarm" />
       </Group>
     </Group>
