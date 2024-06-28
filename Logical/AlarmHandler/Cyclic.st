@@ -28,7 +28,7 @@ else if diUnload is true:
 
 PROGRAM _CYCLIC
 
-	// MpAlarmXCore_0();
+	MpAlarmXCore_0();
 	//MpAlarmXHistory_0.Language := AlarmLanguage;
 
 	NewBox := diBoxBot OR diBoxTop;
@@ -54,7 +54,7 @@ PROGRAM _CYCLIC
 	ConditionBotErr := GettingBot AND TON_1.Q;
 
 	IF ConditionBotErr OR ConditionTopErr THEN
-		// MpAlarmXSet(MpLinkBOXgAlarmXCore, 'BoxLost');
+		MpAlarmXSet(gAlarmXCore, 'BoxLost');
 		gError := TRUE;
 	END_IF;
 
