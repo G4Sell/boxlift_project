@@ -18,7 +18,7 @@ VAR
 
 	selectLift : UINT;
 
-	AutomaticControl : BOOL;
+	AutomaticControl : BOOL := TRUE;
 END_VAR
 
 
