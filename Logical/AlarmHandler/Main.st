@@ -1,21 +1,27 @@
 
+PROGRAM _INIT
+	MpAlarmXCore_0.Enable := TRUE;
+	MpAlarmXCore_0.MpLink := ADR(MpLinkBOXgAlarmXCore); 
+	 
+END_PROGRAM
+	
 (*
 Psuedo code:
 
 // check how many boxes have arrived?
 
 
-if diTopBox:
+IF diTopBox:
 	BoxArrived++:
-if diBotBox:
+IF diBotBox:
 	BoxArrived++;
-if diUnload:
+IF diUnload:
 	BoxDeleivered++;
 
-if lift called:
+IF lift called:
 	start timer;
-if enough time passed && diUnload not true:
-	box failed to be delivered;
+IF enough time passed && diUnload NOT TRUE:
+	box failed TO be delivered;
 	raise alarm;
 else if diUnload is true:
 	reset timer;
@@ -28,7 +34,7 @@ else if diUnload is true:
 
 PROGRAM _CYCLIC
 
-	// MpAlarmXCore_0();
+	MpAlarmXCore_0();
 	//MpAlarmXHistory_0.Language := AlarmLanguage;
 
 	NewBox := diBoxBot OR diBoxTop;
@@ -59,5 +65,12 @@ PROGRAM _CYCLIC
 	END_IF;
 
 	BoxesReceived := BoxDeliveredCnt.CV;
-
+	 
 END_PROGRAM
+
+PROGRAM _EXIT
+	MpAlarmXCore_0.Enable := FALSE;
+	MpAlarmXCore_0();
+	 
+END_PROGRAM
+
