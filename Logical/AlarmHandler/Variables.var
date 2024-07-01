@@ -18,6 +18,8 @@ VAR
 	MpAlarmXHistory_0 : MpAlarmXHistory;
     MpAlarmXAcknowledgeAll_0 : MpAlarmXAcknowledgeAll;
 	AlarmLanguage : STRING[20] := 'en|metric';
+
+    
     CauseError : BOOL;
     AcknowledgeAlarms : BOOL;
     ResetAlarms : BOOL;

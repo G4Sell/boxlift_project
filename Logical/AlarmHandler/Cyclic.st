@@ -68,6 +68,7 @@ PROGRAM _CYCLIC
 
 	IF AcknowledgeAllAlarms THEN
 		MpAlarmXAcknowledgeAll_0.Execute := TRUE;
+		MpAlarmXAcknowledgeAll_0();
 	END_IF;
 
 	IF ResetAlarms THEN		

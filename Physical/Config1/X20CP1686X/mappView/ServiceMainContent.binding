@@ -11,19 +11,20 @@
 <Target xsi:type="brease" contentRefId="ServiceMainContent" widgetRefId="PushButton1" attribute="value" />
 </Binding>
 		<Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::AlarmHandl:AcknowledgeAllAlarms" attribute="value" />
-<Target xsi:type="brease" contentRefId="ServiceMainContent" widgetRefId="PushButton2" attribute="value" />
+			<Source xsi:type="opcUa" refId="::AlarmHandl:AcknowledgeAllAlarms" attribute="value" />
+			<Target xsi:type="brease" contentRefId="ServiceMainContent" widgetRefId="PushButton2" attribute="value" />
 </Binding>
 <Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::AlarmHandl:ResetAlarms" attribute="value" />
 <Target xsi:type="brease" contentRefId="ServiceMainContent" widgetRefId="PushButton3" attribute="value" />
 </Binding>
-<Binding mode="oneWay">
+<!-- <Binding mode="oneWay">
 <Source xsi:type="opcUa" refId="::AsGlobalPV:gError" attribute="value" />
 <Target xsi:type="brease" contentRefId="ServiceMainContent" widgetRefId="Image1" attribute="visible" />
-</Binding>
-<Binding mode="oneWay">
-<Source xsi:type="mapp" refId="gAlarmXCore" attribute="link" />
+</Binding> -->
+
+<Binding mode="twoWay">
+<Source xsi:type="mapp" refId="gAlarmXHistory" attribute="link" />
 <Target xsi:type="brease" contentRefId="ServiceMainContent" widgetRefId="AlarmList1" attribute="mpLink" />
 </Binding>
 </Bindings>
