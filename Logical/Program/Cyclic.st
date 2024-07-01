@@ -33,8 +33,12 @@ PROGRAM _CYCLIC
 		doLiftBot := FALSE;
 		doConvLift := FALSE;
 		doLiftUnload := FALSE;
-	ELSE 
+	ELSIF F_TRIG_0.Q THEN
+		doConvTop := TRUE;
+		doConvBot := TRUE;
+	ELSE
 		IF AutomaticControl THEN
+			
 			IF (diConvTop AND NOT diLiftTop) THEN
 				NextPose := TOP_POSE;
 				doConvTop := FALSE;

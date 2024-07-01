@@ -7,5 +7,7 @@
         <Widget xsi:type="widgets.brease.ToggleButton" id="ToggleButton2" top="75" left="10" width="130" height="50" zIndex="1" text="Manual" />
       </Widgets>
     </Widget>
+    <Widget xsi:type="widgets.brease.Label" id="Label1" top="180" left="10" width="120" zIndex="1" text="Boxes delivered" />
+    <Widget xsi:type="widgets.brease.NumericOutput" id="NumericOutput1" top="220" left="25" zIndex="2" format="{'metric':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':1,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':1,'minimumIntegerDigits':1}}" />
   </Widgets>
 </Content>

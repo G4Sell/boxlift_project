@@ -62,25 +62,31 @@ PROGRAM _CYCLIC
 		gError := TRUE;
 	END_IF;
 
-	IF AcknowledgeAlarms THEN
-		MpAlarmXAcknowledge(gAlarmXCore, 'BoxLost');
-	END_IF;
+	// IF AcknowledgeAlarms THEN
+	// 	MpAlarmXAcknowledge(gAlarmXCore, 'BoxLost');
+	// 	MpAlarmXAcknowledge(gAlarmXCore, 'TestingAlarm');
+	// END_IF;
 
-	IF AcknowledgeAllAlarms THEN
-		MpAlarmXAcknowledgeAll_0.Execute := TRUE;
-		MpAlarmXAcknowledgeAll_0();
+	IF CauseTestError THEN
+		MpAlarmXSet(gAlarmXCore, 'TestingAlarm');
 	END_IF;
+	
+
+	// IF AcknowledgeAllAlarms THEN
+	// 	MpAlarmXAcknowledgeAll_0.Execute := TRUE;
+	// 	MpAlarmXAcknowledgeAll_0();
+	// END_IF;
 
 	IF ResetAlarms THEN		
 		MpAlarmXReset(gAlarmXCore, 'BoxLost');
 		ConditionBotErr := FALSE;
 		ConditionTopErr := FALSE;
+		MpAlarmXReset(gAlarmXCore, 'TestingAlarm');
 	END_IF;
 
 	IF ClearHistory THEN
 		MpAlarmXClearHistory(gAlarmXHistory);
 	END_IF;
-
 
 	BoxesReceived := BoxDeliveredCnt.CV;
 

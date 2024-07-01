@@ -14,10 +14,10 @@
     <BindingsSet refId="ControlContent_binding" />
   </BindingsSets>
   <EventBindingsSets>
-    <EventBindingsSet refId="ServiceMainContent_eventbinding" />
     <EventBindingsSet refId="HeaderContent_eventbinding" />
     <EventBindingsSet refId="MainContent_eventbinding" />
     <EventBindingsSet refId="ControlContent_eventbinding" />
+    <EventBindingsSet refId="ServiceMainContent_eventbinding" />
   </EventBindingsSets>
   <Dialogs>
     <Dialog refId="PopUpDialog" />

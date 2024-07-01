@@ -18,5 +18,15 @@
         </Action>
       </EventHandler>
     </EventBinding>
+    <EventBinding id="ControlContent.ToggleButton2.Click">
+      <Source xsi:type="widgets.brease.ToggleButton.Event" contentRefId="ControlContent" widgetRefId="ToggleButton2" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="opcUa.NodeAction" refId="::Program:AutomaticControl">
+            <Method xsi:type="opcUa.NodeAction.SetValueBool" value="false" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
   </Bindings>
 </EventBindingSet>

@@ -20,6 +20,11 @@
         <Property ID="Severity" Value="10" />
         <Selector ID="Behavior" Value="PersistentAlarm" />
       </Group>
+      <Group ID="[1]">
+        <Property ID="Name" Value="TestingAlarm" />
+        <Property ID="Message" Value="Testing Alarm" />
+        <Selector ID="Behavior" Value="PersistentAlarm" />
+      </Group>
     </Group>
   </Element>
 </Configuration>

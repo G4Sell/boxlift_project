@@ -6,5 +6,9 @@
 <Source xsi:type="opcUa" refId="::Program:AutomaticControl" attribute="value" />
 <Target xsi:type="brease" contentRefId="ControlContent" widgetRefId="ToggleButton1" attribute="value" />
 </Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AlarmHandl:BoxesReceived" attribute="value" />
+<Target xsi:type="brease" contentRefId="ControlContent" widgetRefId="NumericOutput1" attribute="value" />
+</Binding>
 </Bindings>
 </BindingsSet>

@@ -1,11 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Content id="ServiceMainContent" height="400" width="800" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Widgets>
-    <Widget xsi:type="widgets.brease.PushButton" id="PushButton1" top="360" left="20" width="120" zIndex="1" text="Acknowledge" />
-    <Widget xsi:type="widgets.brease.PushButton" id="PushButton2" top="360" left="160" width="120" zIndex="2" text="Acknowledge all" />
-    <Widget xsi:type="widgets.brease.PushButton" id="PushButton3" top="360" left="300" width="120" zIndex="3" text="Reset" />
-    <Widget xsi:type="widgets.brease.PushButton" id="PushButton4" top="360" left="440" width="120" zIndex="4" text="Clear history" />
-    <Widget xsi:type="widgets.brease.TabControl" id="History" top="20" left="20" width="700" height="325" zIndex="5">
+    <Widget xsi:type="widgets.brease.TabControl" id="History" top="20" left="20" width="700" height="325" zIndex="1">
       <Widgets>
         <Widget xsi:type="widgets.brease.TabItem" id="TabItem1" left="0" zIndex="0" text="TabItem1">
           <Widgets>
@@ -21,7 +17,7 @@
         </Widget>
         <Widget xsi:type="widgets.brease.TabItem" id="TabItem2" left="0" zIndex="1" text="TabItem2">
           <Widgets>
-            <Widget xsi:type="widgets.brease.AlarmList" id="AlarmList1" top="10" left="20" height="270" zIndex="0">
+            <Widget xsi:type="widgets.brease.AlarmList" id="AlarmList1" top="0" left="0" width="640" height="280" zIndex="0">
               <Widgets>
                 <Widget xsi:type="widgets.brease.AlarmListItem" id="AlarmListItem1" zIndex="0" columnType="timestamp" text="Time" />
                 <Widget xsi:type="widgets.brease.AlarmListItem" id="AlarmListItem2" zIndex="1" text="Message" />
@@ -32,5 +28,9 @@
         </Widget>
       </Widgets>
     </Widget>
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="MomentaryPushButton3" top="360" left="280" zIndex="2" text="Reset" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="MomentaryPushButton4" top="360" left="400" zIndex="3" text="Clear history" />
+    <Widget xsi:type="widgets.brease.Button" id="Button1" top="360" left="20" zIndex="4" text="Acknowledge" />
+    <Widget xsi:type="widgets.brease.Button" id="Button2" top="360" left="140" width="120" zIndex="5" text="Acknowledge All" />
   </Widgets>
 </Content>
