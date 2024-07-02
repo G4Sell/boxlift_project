@@ -26,16 +26,19 @@ Pseudo Code
 
 
 PROGRAM _CYCLIC	
-
-	IF gError THEN
+	IF MpAlarmXCheckReaction(gAlarmXCore, 'StopAll') THEN
 		doConvTop := FALSE;
 		doConvBot := FALSE;
 		doLiftTop := FALSE;
 		doLiftBot := FALSE;
 		doConvLift := FALSE;
 		doLiftUnload := FALSE;
+	ELSIF F_TRIG_0.Q THEN
+		doConvTop := TRUE;
+		doConvBot := TRUE;
 	ELSE
 		IF AutomaticControl THEN
+			
 			IF (diConvTop AND NOT diLiftTop) THEN
 				NextPose := TOP_POSE;
 				doConvTop := FALSE;

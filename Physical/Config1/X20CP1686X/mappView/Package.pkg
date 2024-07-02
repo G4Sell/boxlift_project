@@ -6,12 +6,12 @@
     <Object Type="File">Config.mappviewcfg</Object>
     <Object Type="File">HeaderContent.binding</Object>
     <Object Type="File">ServiceMainContent.binding</Object>
-    <Object Type="File">ServiceMainContent.eventbinding</Object>
     <Object Type="File">HeaderContent.eventbinding</Object>
     <Object Type="File">MainContent.eventbinding</Object>
     <Object Type="File">ControlContent.eventbinding</Object>
     <Object Type="File">MainContent.binding</Object>
     <Object Type="File">ManualControlContent.binding</Object>
     <Object Type="File">ControlContent.binding</Object>
+    <Object Type="File">ServiceMainContent.eventbinding</Object>
   </Objects>
 </Package>

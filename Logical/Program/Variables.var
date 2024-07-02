@@ -15,10 +15,10 @@ VAR
 	doLiftUnload : BOOL := FALSE;
 
 	NextPose : UINT;
-
 	selectLift : UINT;
+	AutomaticControl : BOOL;
 
-	AutomaticControl : BOOL := TRUE;
+	F_TRIG_0 : F_TRIG;
 END_VAR
 
 

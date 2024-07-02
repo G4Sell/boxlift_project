@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BindingsSet id="ManualControlContent_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Bindings>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::SimConnect:Outputs.doConvBottom" attribute="value" />
+<Target xsi:type="brease" contentRefId="ManualControlContent" widgetRefId="ToggleButton1" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::SimConnect:Outputs.doConvTop" attribute="value" />
+<Target xsi:type="brease" contentRefId="ManualControlContent" widgetRefId="ToggleButton2" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::SimConnect:Outputs.doConvLift" attribute="value" />
+<Target xsi:type="brease" contentRefId="ManualControlContent" widgetRefId="ToggleButton3" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::SimConnect:Outputs.doLiftUnload" attribute="value" />
+<Target xsi:type="brease" contentRefId="ManualControlContent" widgetRefId="ToggleButton4" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::SimConnect:Outputs.doLiftBottom" attribute="value" />
+<Target xsi:type="brease" contentRefId="ManualControlContent" widgetRefId="ToggleButton5" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::SimConnect:Outputs.doLiftTop" attribute="value" />
+<Target xsi:type="brease" contentRefId="ManualControlContent" widgetRefId="ToggleButton6" attribute="value" />
+</Binding>
+</Bindings>
+</BindingsSet>
