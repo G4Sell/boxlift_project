@@ -24,4 +24,5 @@ VAR
     CauseTestError : BOOL;
     ResetAlarms : BOOL;
     ClearHistory : BOOL; 
+    AcknowledgeAlarms : BOOL;
 END_VAR
