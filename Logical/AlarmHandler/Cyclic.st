@@ -62,10 +62,10 @@ PROGRAM _CYCLIC
 		gError := TRUE;
 	END_IF;
 
-	// IF AcknowledgeAlarms THEN
-	// 	MpAlarmXAcknowledge(gAlarmXCore, 'BoxLost');
-	// 	MpAlarmXAcknowledge(gAlarmXCore, 'TestingAlarm');
-	// END_IF;
+	IF AcknowledgeAlarms THEN
+		MpAlarmXAcknowledge(gAlarmXCore, 'BoxLost');
+		MpAlarmXAcknowledge(gAlarmXCore, 'TestingAlarm');
+	END_IF;
 
 	IF CauseTestError THEN
 		MpAlarmXSet(gAlarmXCore, 'TestingAlarm');

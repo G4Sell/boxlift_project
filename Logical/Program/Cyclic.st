@@ -24,19 +24,31 @@ Pseudo Code
 	*)
 
 
-
 PROGRAM _CYCLIC	
+	
 	IF MpAlarmXCheckReaction(gAlarmXCore, 'StopAll') THEN
+		Input := TRUE;
+	ELSE
+		Input := FALSE;
+	END_IF;
+	
+	F_TRIG_0(CLK := Input);
+	R_TRIG_0(CLK := Input);
+	
+	IF R_TRIG_0.Q THEN
 		doConvTop := FALSE;
 		doConvBot := FALSE;
 		doLiftTop := FALSE;
 		doLiftBot := FALSE;
 		doConvLift := FALSE;
 		doLiftUnload := FALSE;
+		
 	ELSIF F_TRIG_0.Q THEN
 		doConvTop := TRUE;
 		doConvBot := TRUE;
-	ELSE
+	END_IF;
+	
+	IF NOT  MpAlarmXCheckReaction(gAlarmXCore, 'StopAll') THEN
 		IF AutomaticControl THEN
 			
 			IF (diConvTop AND NOT diLiftTop) THEN
