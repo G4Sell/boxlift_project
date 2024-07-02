@@ -42,13 +42,14 @@ PROGRAM _CYCLIC
 		doLiftBot := FALSE;
 		doConvLift := FALSE;
 		doLiftUnload := FALSE;
+		selectLift := gCurrentTask;
 		
 	ELSIF F_TRIG_0.Q THEN
 		doConvTop := TRUE;
 		doConvBot := TRUE;
 	END_IF;
 	
-	IF NOT  MpAlarmXCheckReaction(gAlarmXCore, 'StopAll') THEN
+	IF NOT MpAlarmXCheckReaction(gAlarmXCore, 'StopAll') THEN
 		IF AutomaticControl THEN
 			
 			IF (diConvTop AND NOT diLiftTop) THEN
@@ -60,6 +61,14 @@ PROGRAM _CYCLIC
 				NextPose := BOT_POSE;
 				doConvBot := FALSE;
 			END_IF;
+
+			R_TRIG_1(CLK := gRestart);
+			IF R_TRIG_1.Q THEN
+				selectLift := WAIT;
+				gRestart := FALSE;
+			END_IF;
+
+			gCurrentTask := selectLift; 
 			
 			CASE selectLift OF
 			

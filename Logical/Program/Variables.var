@@ -20,6 +20,7 @@ VAR
 
 	F_TRIG_0 : F_TRIG;
 	R_TRIG_0 : R_TRIG;
+	R_TRIG_1 : R_TRIG;
 	Input : BOOL;
 	Output : BOOL;
 END_VAR

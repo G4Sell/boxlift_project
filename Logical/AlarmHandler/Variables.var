@@ -19,10 +19,16 @@ VAR
     MpAlarmXAcknowledgeAll_0 : MpAlarmXAcknowledgeAll;
 	AlarmLanguage : STRING[20] := 'en|metric';
 
-
     CauseError : BOOL;
     CauseTestError : BOOL;
     ResetAlarms : BOOL;
     ClearHistory : BOOL; 
     AcknowledgeAlarms : BOOL;
 END_VAR
+
+VAR CONSTANT
+	TOP_POSE : INT := 1;
+	BOT_POSE : INT := 2;
+	WAIT : INT := 0;
+END_VAR
+
