@@ -3,8 +3,7 @@
   <Widgets>
     <Widget xsi:type="widgets.brease.ButtonBar" id="ButtonBar1" top="20" left="0" width="150" height="140" zIndex="0">
       <Widgets>
-        <Widget xsi:type="widgets.brease.ToggleButton" id="ToggleButton1" top="10" left="10" width="130" height="50" zIndex="0" text="Automatic" value="true" />
-        <Widget xsi:type="widgets.brease.ToggleButton" id="ToggleButton2" top="75" left="10" width="130" height="50" zIndex="1" text="Manual" />
+        <Widget xsi:type="widgets.brease.ToggleSwitch" id="ControlToggleSwitch" top="20" left="20" zIndex="0" text="Automatic" value="true" />
       </Widgets>
     </Widget>
     <Widget xsi:type="widgets.brease.Label" id="Label1" top="180" left="10" width="120" zIndex="1" text="Boxes delivered" />

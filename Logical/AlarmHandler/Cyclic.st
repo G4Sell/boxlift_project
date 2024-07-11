@@ -33,29 +33,29 @@ PROGRAM _CYCLIC
 	MpAlarmXAcknowledgeAll_0();
 	MpAlarmXHistory_0.Language := ADR(AlarmLanguage);
 
-	NewBox := diBoxBot OR diBoxTop;
-	BoxArrivedCnt(CU:=NewBox);
+	NewBox := SystemManagement.InputSignals.diBoxBot OR SystemManagement.InputSignals.diBoxTop;
+	SystemManagement.BoxCounter.BoxArrivedCnt(CU := NewBox);
 
 	IF gMain.State = TOP_POSE THEN
-		GettingTop := TRUE;
+		SystemManagement.CurrentActions.GettingTop := TRUE;
 	ELSIF gMain.State = BOT_POSE THEN
-		GettingBot := TRUE;
+		SystemManagement.CurrentActions.GettingBot := TRUE;
 	END_IF;
 
-	TON_0(IN:=GettingTop, PT:=T#13s);
-	TON_1(IN:=GettingBot, PT:=T#13s);
+	ErrorManagement.TimerCounter.TON_0(IN:=SystemManagement.CurrentActions.GettingTop, PT:=T#13s);
+	ErrorManagement.TimerCounter.TON_1(IN:=SystemManagement.CurrentActions.GettingBot, PT:=T#13s);
 
-	IF diBoxUnload THEN
-		GettingTop := FALSE;
-		GettingBot := FALSE;
+	IF SystemManagement.InputSignals.diBoxUnload THEN
+		SystemManagement.CurrentActions.GettingTop := FALSE;
+		SystemManagement.CurrentActions.GettingBot := FALSE;
 	END_IF;
 	
-	BoxDeliveredCnt(CU:=diBoxUnload);
+	SystemManagement.BoxCounter.BoxDeliveredCnt(CU:=SystemManagement.InputSignals.diBoxUnload);
+	
+	ErrorManagement.Conditions.ConditionTopErr := SystemManagement.CurrentActions.GettingTop AND ErrorManagement.TimerCounter.TON_0.Q;
+	ErrorManagement.Conditions.ConditionBotErr := SystemManagement.CurrentActions.GettingBot AND ErrorManagement.TimerCounter.TON_1.Q;
 
-	ConditionTopErr := GettingTop AND TON_0.Q;
-	ConditionBotErr := GettingBot AND TON_1.Q;
-
-	IF ConditionBotErr OR ConditionTopErr OR CauseError THEN
+	IF ErrorManagement.Conditions.ConditionTopErr OR ErrorManagement.Conditions.ConditionBotErr OR ErrorManagement.ErrorCommands.CauseError THEN
 		IF NOT MpAlarmXCheckReaction(gAlarmXCore, 'StopAll') THEN
 			MpAlarmXSet(gAlarmXCore, 'BoxLost');
 		END_IF;
@@ -63,27 +63,27 @@ PROGRAM _CYCLIC
 		gMain.State := WAIT;
 	END_IF;
 
-	IF AcknowledgeAlarms THEN
+	IF ErrorManagement.ErrorCommands.AcknowledgeAlarms THEN
 		MpAlarmXAcknowledge(gAlarmXCore, 'BoxLost');
 		MpAlarmXAcknowledge(gAlarmXCore, 'TestingAlarm');
 	END_IF;
 
-	IF CauseTestError THEN
+	IF ErrorManagement.ErrorCommands.CauseTestError THEN
 		MpAlarmXSet(gAlarmXCore, 'TestingAlarm');
 	END_IF;
 
-	IF ResetAlarms THEN		
+	IF ErrorManagement.ErrorCommands.ResetAlarms THEN		
 		MpAlarmXReset(gAlarmXCore, 'BoxLost');
 		MpAlarmXReset(gAlarmXCore, 'TestingAlarm');
-		GettingTop := FALSE;
-		GettingBot := FALSE;
+		SystemManagement.CurrentActions.GettingBot := FALSE;
+		SystemManagement.CurrentActions.GettingBot := FALSE;
 		gMain.Restart := TRUE;
 	END_IF;
 
-	IF ClearHistory THEN
+	IF ErrorManagement.ErrorCommands.ClearHistory THEN
 		MpAlarmXClearHistory(gAlarmXHistory);
 	END_IF;
 
-	BoxesReceived := BoxDeliveredCnt.CV;
+	SystemManagement.BoxCounter.BoxesReceived := SystemManagement.BoxCounter.BoxDeliveredCnt.CV;
 
 END_PROGRAM

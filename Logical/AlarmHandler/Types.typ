@@ -1,8 +1,9 @@
 
 TYPE
 	SystemManagementType : STRUCT
-		InputSignals : InputSignals;
+		InputSignals : InputSignalsType;
 		CurrentActions : CurrentActionsType;
+        BoxCounter : BoxCounterType;
 	END_STRUCT;
 
 	CurrentActionsType : STRUCT
@@ -18,8 +19,8 @@ TYPE
 		diBoxUnload : BOOL;
 	END_STRUCT;
 
+
 	ErrorManagementType : STRUCT 
-		BoxCounter : BoxCounterType;
 		TimerCounter : TimerCounterType;
 		Conditions : ConditionsType;
 		ErrorCommands : ErrorCommandsType;
