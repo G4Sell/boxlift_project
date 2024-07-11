@@ -23,6 +23,54 @@ Pseudo Code
 
 	*)
 
+// VAR
+// 	TYPE 
+		// Conv : STRUCT
+		// 	CmdType : ConvOutputs
+		// 	Status : ConvInputs;			
+		// END_STRUCT
+
+		// ConvOutputs : STRUCT
+		// 	doConvTop : BOOL := FALSE;
+		// 	doConvBot : BOOL := FALSE;
+		// END_STRUCT
+
+		// ConvInputs : STRUCT
+		// 	diConvBot : BOOL := FALSE;
+		// 	diConvTop : BOOL := FALSE;
+		// 	diBoxtUnload : BOOL := FALSE;
+		// END_STRUCT
+
+		// Lift : STRUCT
+		// 	Cmd : LiftOutputs;
+		// 	Status : LiftrInputs;
+		// END_STRUCT
+
+		// LiftOutputs : STRUCT
+		// 	doLiftTop : BOOL := FALSE;
+		// 	doLiftBot : BOOL := FALSE;
+		// 	doConvLift : BOOL := FALSE;
+		// 	doLiftUnload : BOOL := FALSE;
+		// END_STRUCT
+
+		// LiftInputs : STRUCT
+		// 	diLiftBot : BOOL := FALSE;
+		// 	diLiftTop : BOOL := FALSE;
+		// 	diBoxLift : BOOL := FALSE;
+		// 	diLiftUnload : BOOL := FALSE;
+		// END_STRUCT
+
+		// StatesEnum:
+		// (
+		// 	TOP_POSE,
+		// 	BOT_POSE,
+		// 	GET_BOX,
+		// 	UNLOAD_POSE,
+		// 	UNLOAD_BOX,
+		// 	WAIT
+		// );
+// 	END_TYPE
+// END_VAR
 
 PROGRAM _CYCLIC	
 	
@@ -32,94 +80,88 @@ PROGRAM _CYCLIC
 		Input := FALSE;
 	END_IF;
 	
-	F_TRIG_0(CLK := Input);
-	R_TRIG_0(CLK := Input);
-	
-	IF R_TRIG_0.Q THEN
-		doConvTop := FALSE;
-		doConvBot := FALSE;
-		doLiftTop := FALSE;
-		doLiftBot := FALSE;
-		doConvLift := FALSE;
-		doLiftUnload := FALSE;
-		selectLift := gCurrentTask;
+	IF EDGEPOS(Input) THEN
+		Conv.Cmd.doConvBot := FALSE;
+		Conv.Cmd.doConvTop := FALSE;
+		Lift.Cmd.doLiftBot := FALSE;
+		Lift.Cmd.doLiftTop := FALSE;
+		Lift.Cmd.doLiftUnload := FALSE;
+		Lift.Cmd.doConvLift := FALSE;
+		selectLift := gMain.State;
 		
-	ELSIF F_TRIG_0.Q THEN
-		doConvTop := TRUE;
-		doConvBot := TRUE;
+	ELSIF EDGENEG(Input) THEN
+		Conv.Cmd.doConvTop := TRUE;
+		Conv.Cmd.doConvBot := TRUE;
 	END_IF;
 	
 	IF NOT MpAlarmXCheckReaction(gAlarmXCore, 'StopAll') THEN
-		IF AutomaticControl THEN
+		IF gMain.AutomaticControl THEN
 			
-			IF (diConvTop AND NOT diLiftTop) THEN
+			IF (Conv.Status.diConvTop AND NOT Lift.Status.diLiftTop) THEN
 				NextPose := TOP_POSE;
-				doConvTop := FALSE;
+				Conv.Cmd.doConvTop := FALSE;
 			END_IF;
 			
-			IF (diConvBot = TRUE AND NOT diLiftBot) THEN
+			IF (Conv.Status.diConvBot = TRUE AND NOT Lift.Status.diLiftBot) THEN
 				NextPose := BOT_POSE;
-				doConvBot := FALSE;
+				Conv.Cmd.doConvBot := FALSE;
 			END_IF;
 
-			R_TRIG_1(CLK := gRestart);
-			IF R_TRIG_1.Q THEN
+			IF EDGEPOS(gMain.Restart) THEN
 				selectLift := WAIT;
-				gRestart := FALSE;
+				gMain.Restart := FALSE;
 			END_IF;
 
-			gCurrentTask := selectLift; 
+			gMain.State := selectLift; 
 			
 			CASE selectLift OF
 			
 				WAIT:
-					IF (diConvTop = TRUE) THEN
-						selectLift := TOP_POSE;
-						doConvTop := FALSE;
-					ELSIF (diConvBot = TRUE) THEN
+					IF Conv.Status.diConvTop = TRUE THEN
+							selectLift := TOP_POSE;
+						Conv.Cmd.doConvTop := FALSE;
+					ELSIF (Conv.Status.diConvBot = TRUE) THEN
 						selectLift := BOT_POSE;
-						doConvBot := FALSE;
+						Conv.Cmd.doConvBot := FALSE;
 					END_IF;
 				
 				TOP_POSE:
-					doLiftTop := TRUE; 
-					IF (diLiftTop = TRUE) THEN
-						doLiftTop := FALSE;
-						doConvTop := TRUE;
+					Lift.Cmd.doLiftTop := TRUE; 
+					IF Lift.Status.diLiftTop THEN
+						Lift.Cmd.doLiftTop := FALSE;
+						Conv.Cmd.doConvTop := TRUE;
 						selectLift := GET_BOX;
 					END_IF;
 				
 				BOT_POSE:
-					doLiftBot := TRUE;
-					IF diLiftBot = TRUE THEN
-						doLiftBot := FALSE;
-						doConvBot := TRUE;
+					Lift.Cmd.doLiftBot := TRUE;
+					IF Lift.Status.diLiftBot THEN
+						Lift.Cmd.doLiftBot := FALSE;
+						Conv.Cmd.doConvBot := TRUE;
 						selectLift := GET_BOX;
 					END_IF;
 			
 				GET_BOX:
-					doConvLift := TRUE;
-					IF diBoxLift = TRUE THEN //the box is succesfully loaded onto the lift
-						doConvLift := FALSE;
+					Lift.Cmd.doConvLift := TRUE;
+					IF Lift.Status.diBoxLift = TRUE THEN //the box is succesfully loaded onto the lift
+						Lift.Cmd.doConvLift := FALSE;
 						selectLift := UNLOAD_POSE;
 					END_IF;
 			
 				UNLOAD_POSE:
-					doLiftUnload := TRUE;
-					IF diLiftUnload = TRUE THEN
-						doLiftUnload := FALSE;
+					Lift.Cmd.doLiftUnload := TRUE;
+					IF Lift.Status.diLiftUnload THEN
+						Lift.Cmd.doLiftUnload := FALSE;
 						selectLift := UNLOAD_BOX;
 					END_IF;
 				
 				UNLOAD_BOX:
-					doConvLift := TRUE;
-					IF diBoxUnload = TRUE THEN
-						doConvLift := FALSE;
+					Lift.Cmd.doConvLift := TRUE;
+					IF Conv.Status.diBoxUnload THEN
+						Lift.Cmd.doConvLift := FALSE;
 						selectLift := WAIT;
 					END_IF;
 			END_CASE;
 		END_IF;
 	END_IF;
-
-	 
 END_PROGRAM

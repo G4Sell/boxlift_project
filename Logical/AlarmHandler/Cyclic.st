@@ -36,9 +36,9 @@ PROGRAM _CYCLIC
 	NewBox := diBoxBot OR diBoxTop;
 	BoxArrivedCnt(CU:=NewBox);
 
-	IF gCurrentTask = TOP_POSE THEN
+	IF gMain.State = TOP_POSE THEN
 		GettingTop := TRUE;
-	ELSIF gCurrentTask = BOT_POSE THEN
+	ELSIF gMain.State = BOT_POSE THEN
 		GettingBot := TRUE;
 	END_IF;
 
@@ -59,8 +59,8 @@ PROGRAM _CYCLIC
 		IF NOT MpAlarmXCheckReaction(gAlarmXCore, 'StopAll') THEN
 			MpAlarmXSet(gAlarmXCore, 'BoxLost');
 		END_IF;
-		gError := TRUE;
-		gCurrentTask := WAIT;
+		gMain.Error := TRUE;
+		gMain.State := WAIT;
 	END_IF;
 
 	IF AcknowledgeAlarms THEN
@@ -77,7 +77,7 @@ PROGRAM _CYCLIC
 		MpAlarmXReset(gAlarmXCore, 'TestingAlarm');
 		GettingTop := FALSE;
 		GettingBot := FALSE;
-		gRestart := TRUE;
+		gMain.Restart := TRUE;
 	END_IF;
 
 	IF ClearHistory THEN

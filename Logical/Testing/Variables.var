@@ -1,0 +1,6 @@
+VAR
+	Input : BOOL;
+	Output : BOOL;
+	R_TRIG_0 : R_TRIG;
+	F_TRIG_0 : F_TRIG;
+END_VAR

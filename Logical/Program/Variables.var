@@ -1,36 +1,11 @@
 VAR
-	diConvTop : BOOL;
-	diConvBot : BOOL;
-	diLiftBot : BOOL;
-	diLiftTop : BOOL;
-	diBoxLift : BOOL;
-	diLiftUnload : BOOL;
-	diBoxUnload : BOOL;
+	Conv : ConvType;
+	Lift : LiftType;
 
-	doConvTop : BOOL := FALSE;
-	doConvBot : BOOL := FALSE;
-	doLiftTop : BOOL := FALSE;
-	doLiftBot : BOOL := FALSE;
-	doConvLift : BOOL := FALSE;
-	doLiftUnload : BOOL := FALSE;
+	NextPose : StatesEnum;
+	selectLift : StatesEnum;
 
-	NextPose : UINT;
-	selectLift : UINT;
-	AutomaticControl : BOOL;
-
-	F_TRIG_0 : F_TRIG;
-	R_TRIG_0 : R_TRIG;
-	R_TRIG_1 : R_TRIG;
 	Input : BOOL;
 	Output : BOOL;
 END_VAR
 
-
-VAR CONSTANT
-	TOP_POSE : INT := 1;
-	BOT_POSE : INT := 2;
-	GET_BOX : INT := 3;
-	UNLOAD_POSE : INT := 4;
-	UNLOAD_BOX : INT := 5;
-	WAIT : INT := 0;
-END_VAR

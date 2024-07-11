@@ -27,8 +27,6 @@ VAR
 END_VAR
 
 VAR CONSTANT
-	TOP_POSE : INT := 1;
-	BOT_POSE : INT := 2;
-	WAIT : INT := 0;
+	
 END_VAR
 

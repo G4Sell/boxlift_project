@@ -10,7 +10,7 @@
   <DefaultView>
     <Module Name="&lt;Default&gt;">
       <GlobalVariables Name="Global Variables">
-        <Variable Name="gError" />
+        <Variable Name="gMain" RecursiveEnable="2" />
       </GlobalVariables>
       <Task Name="SimConnect">
         <Variable Name="Configuration" RecursiveEnable="2">
@@ -46,20 +46,9 @@
         </Variable>
       </Task>
       <Task Name="Program">
-        <Variable Name="diBoxLift" />
-        <Variable Name="diConvBot" />
-        <Variable Name="diConvTop" />
-        <Variable Name="diLiftBot" />
-        <Variable Name="diLiftTop" />
-        <Variable Name="diLiftUnload" />
-        <Variable Name="doConvBot" />
-        <Variable Name="doConvLift" />
-        <Variable Name="doConvTop" />
-        <Variable Name="doLiftBot" />
-        <Variable Name="doLiftTop" />
-        <Variable Name="doLiftUnload" />
         <Variable Name="selectLift" />
-        <Variable Name="AutomaticControl" />
+        <Variable Name="Lift" RecursiveEnable="2" />
+        <Variable Name="Conv" RecursiveEnable="2" />
       </Task>
       <Task Name="AlarmHandl">
         <Variable Name="BoxArrivedCnt" />

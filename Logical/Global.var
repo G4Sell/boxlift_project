@@ -1,8 +1,6 @@
 
 VAR
-    gCurrentTask : UINT;
-    gError : BOOL;
-    gRestart : BOOL;
+    gMain : MainType;
 END_VAR
 
 VAR CONSTANT
