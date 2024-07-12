@@ -1,5 +1,13 @@
 
 
+
+
+//********************************************************************* 
+// Author: Gustav Forsell
+// Created: 2024-07-12
+// Description: This program implements a box delivery system from two conveyors to a lift.
+//********************************************************************
+
 (* 
 Pseudo Code
 	cases = [ConvTop, ConvBot]
@@ -74,12 +82,14 @@ Pseudo Code
 
 PROGRAM _CYCLIC	
 	
+	// Initialize the alarm system
 	IF MpAlarmXCheckReaction(gAlarmXCore, 'StopAll') THEN
 		Input := TRUE;
 	ELSE
 		Input := FALSE;
 	END_IF;
 	
+	// if alarm was just trig then stop all
 	IF EDGEPOS(Input) THEN
 		Conv.Cmd.doConvBot := FALSE;
 		Conv.Cmd.doConvTop := FALSE;
@@ -88,15 +98,18 @@ PROGRAM _CYCLIC
 		Lift.Cmd.doLiftUnload := FALSE;
 		Lift.Cmd.doConvLift := FALSE;
 		selectLift := gMain.State;
-		
+	
+	// if alarm was just reset then start top and bot
 	ELSIF EDGENEG(Input) THEN
 		Conv.Cmd.doConvTop := TRUE;
 		Conv.Cmd.doConvBot := TRUE;
 	END_IF;
 	
+	// runs the program if there is no active alarm
 	IF NOT MpAlarmXCheckReaction(gAlarmXCore, 'StopAll') THEN
 		IF gMain.AutomaticControl THEN
 			
+			// check if the box is at the top conveyor and if so stops, and the same for the bottom
 			IF (Conv.Status.diConvTop AND NOT Lift.Status.diLiftTop) THEN
 				NextPose := TOP_POSE;
 				Conv.Cmd.doConvTop := FALSE;
@@ -107,6 +120,7 @@ PROGRAM _CYCLIC
 				Conv.Cmd.doConvBot := FALSE;
 			END_IF;
 
+			// if system was just restarted then go to wait state
 			IF EDGEPOS(gMain.Restart) THEN
 				selectLift := WAIT;
 				gMain.Restart := FALSE;
@@ -114,8 +128,10 @@ PROGRAM _CYCLIC
 
 			gMain.State := selectLift; 
 			
+			// state machine to determine the next state
 			CASE selectLift OF
-			
+				
+				// determines where there is a box and choses the appropiate action
 				WAIT:
 					IF Conv.Status.diConvTop = TRUE THEN
 							selectLift := TOP_POSE;
@@ -125,6 +141,7 @@ PROGRAM _CYCLIC
 						Conv.Cmd.doConvBot := FALSE;
 					END_IF;
 				
+				// if box on top then go to top pose
 				TOP_POSE:
 					Lift.Cmd.doLiftTop := TRUE; 
 					IF Lift.Status.diLiftTop THEN
@@ -133,6 +150,7 @@ PROGRAM _CYCLIC
 						selectLift := GET_BOX;
 					END_IF;
 				
+				// if box on bot then go to bot pose
 				BOT_POSE:
 					Lift.Cmd.doLiftBot := TRUE;
 					IF Lift.Status.diLiftBot THEN
