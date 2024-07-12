@@ -1,19 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <EventBindingSet id="ControlContent_eventbinding" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Bindings>
-    <EventBinding id="EventBinding_8">
-      <Source xsi:type="widgets.brease.ToggleSwitch.Event" contentRefId="ControlContent" widgetRefId="AutomaticToggleSwitch" event="Click" />
-      <EventHandler condition="value=0">
+    <EventBinding id="EventBinding_16">
+      <Source xsi:type="opcUa.Event" refId="::AsGlobalPV:gMain.AutomaticControl" event="ValueChanged" />
+      <EventHandler condition="newValue=true">
         <Action>
-          <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.LoadContentInArea" contentId="MainContent" pageId="MainPage" areaId="main" />
+          <Target xsi:type="widgets.brease.Label.Action" contentRefId="ControlContent" widgetRefId="ControlTypeLabel">
+            <Method xsi:type="widgets.brease.Label.Action.SetStyle" value="default" />
           </Target>
         </Action>
       </EventHandler>
-      <EventHandler condition="value=1">
+    </EventBinding>
+    <EventBinding id="EventBinding_8">
+      <Source xsi:type="opcUa.Event" refId="::AsGlobalPV:gMain.AutomaticControl" event="ValueChanged" />
+      <EventHandler condition="newValue=false">
         <Action>
           <Target xsi:type="clientSystem.Action">
             <Method xsi:type="clientSystem.Action.LoadContentInArea" contentId="ManualControlContent" pageId="MainPage" areaId="main" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="newValue=true">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.LoadContentInArea" contentId="MainContent" pageId="MainPage" areaId="main" />
           </Target>
         </Action>
       </EventHandler>
