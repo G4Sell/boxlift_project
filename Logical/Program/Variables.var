@@ -1,11 +1,11 @@
 VAR
-	Conv : ConvType;
-	Lift : LiftType;
+	Conv : ConvType; (*Struct which contains commands and status for the different conveyer sensors*)
+	Lift : LiftType; (*Struct which contains commands and status for the different list sensors*)
 
-	NextPose : StatesEnum;
-	selectLift : StatesEnum;
+	NextPose : StatesEnum; (*The systems next pose*)
+	selectLift : StatesEnum; (*The different states of the system*)
 
-	Input : BOOL;
-	Output : BOOL;
+	Input : BOOL; (*Variable to determine the state of alarms*)
+
 END_VAR
 
